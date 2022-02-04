@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+
+  ecommerce-php:
+    image: php:8.1-fpm-alpine
+    container_name: ecommerce-php
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - ecommerce-network
+
+  ecommerce-mysql:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: ecommerce-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ECOMMERCE_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${ECOMMERCE_DATABASE_NAME}
+      MYSQL_USER: ${ECOMMERCE_DATABASE_USER}
+      MYSQL_PASSWORD: ${ECOMMERCE_DATABASE_PASSWORD}
+    networks:
+      - ecommerce-network
+
+  ecommerce-nginx:
+    image: nginx:alpine
+    container_name: ecommerce-nginx
+    restart: unless-stopped
+    tty: true
+    ports: [ "80:80" ]
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:cached
+      - ./etc/nginx/conf.d/:/etc/nginx/conf.d/:cached
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
