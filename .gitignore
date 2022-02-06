@@ -8,5 +8,6 @@
 /var/
 /vendor/
 .idea
+products-api.iml
 symfony.lock
 ###< symfony/framework-bundle ###
