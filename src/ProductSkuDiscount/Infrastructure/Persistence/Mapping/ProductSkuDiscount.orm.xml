@@ -1,0 +1,7 @@
+<doctrine-mapping>
+    <entity name="Ecommerce\ProductSkuDiscount\Domain\ProductSkuDiscount" table="product_sku_discount">
+        <id name="id" type="product_sku_discount_id"/>
+        <embedded name="sku" class="Ecommerce\Product\Domain\ProductSku" use-column-prefix="false"/>
+        <embedded name="discountPercentage" class="Ecommerce\Product\Domain\ProductDiscountPercentage" use-column-prefix="false"/>
+    </entity>
+</doctrine-mapping>

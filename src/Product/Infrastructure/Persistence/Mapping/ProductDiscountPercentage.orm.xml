@@ -1,0 +1,5 @@
+<doctrine-mapping>
+    <embeddable name="Ecommerce\Product\Domain\ProductDiscountPercentage">
+        <field name="value" type="integer" column="product_discount_percentage" nullable="false"/>
+    </embeddable>
+</doctrine-mapping>

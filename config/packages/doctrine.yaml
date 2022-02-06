@@ -10,6 +10,8 @@ doctrine:
         types:
             product_id: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductIdType
             product_category: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductCategoryType
+            product_sku_discount_id: Ecommerce\ProductSkuDiscount\Infrastructure\Persistence\Mapping\ProductSkuDiscountIdType
+            product_category_discount_id: Ecommerce\ProductCategoryDiscount\Infrastructure\Persistence\Mapping\ProductCategoryDiscountIdType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -20,3 +22,15 @@ doctrine:
                 type: xml
                 dir: '%kernel.project_dir%/src/Product/Infrastructure/Persistence/Mapping'
                 prefix: 'Ecommerce\Product\Domain'
+
+            ProductCategoryDiscount:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/ProductCategoryDiscount/Infrastructure/Persistence/Mapping'
+                prefix: 'Ecommerce\ProductCategoryDiscount\Domain'
+
+            ProductSkuDiscount:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/ProductSkuDiscount/Infrastructure/Persistence/Mapping'
+                prefix: 'Ecommerce\ProductSkuDiscount\Domain'
