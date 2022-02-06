@@ -17,9 +17,7 @@ final class ProductsGetRestController extends AbstractController
     {
     }
 
-    /**
-     * @Route("/products")
-     */
+    #[Route('/products')]
     public function __invoke(): Response
     {
         $filters = [];
@@ -32,6 +30,6 @@ final class ProductsGetRestController extends AbstractController
             new ProductCriteriaRequest($filters, $orderBy, $order, $limit, $offset)
         );
 
-        return new JsonResponse($response);
+        return new JsonResponse($response->items());
     }
 }

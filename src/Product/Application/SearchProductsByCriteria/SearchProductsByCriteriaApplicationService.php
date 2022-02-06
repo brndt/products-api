@@ -10,7 +10,7 @@ use Ecommerce\Common\Domain\Criteria\Order;
 use Ecommerce\Product\Application\DTO\ProductCriteriaRequest;
 use Ecommerce\Product\Application\DTO\ProductResponse;
 use Ecommerce\Product\Application\DTO\ProductResponseCollection;
-use Ecommerce\Product\Domain\Aggregate\Product;
+use Ecommerce\Product\Domain\Product;
 use Ecommerce\Product\Domain\Repository\ProductRepository;
 
 use function Lambdish\Phunctional\map;

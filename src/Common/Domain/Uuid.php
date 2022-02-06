@@ -7,7 +7,7 @@ namespace Ecommerce\Common\Domain;
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
-abstract class Uuid
+abstract class Uuid implements \Stringable
 {
     public function __construct(public readonly string $value)
     {
@@ -24,5 +24,10 @@ abstract class Uuid
         if (! RamseyUuid::isValid($value)) {
             throw new InvalidArgumentException($value);
         }
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
     }
 }

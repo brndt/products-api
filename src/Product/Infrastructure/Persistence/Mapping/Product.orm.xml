@@ -1,0 +1,9 @@
+<doctrine-mapping>
+    <entity name="Ecommerce\Product\Domain\Product" table="product">
+        <id name="id" type="product_id"/>
+        <embedded name="sku" class="Ecommerce\Product\Domain\ProductSku" use-column-prefix="false"/>
+        <field name="category" type="product_category"/>
+        <embedded name="name" class="Ecommerce\Product\Domain\ProductName" use-column-prefix="false"/>
+        <embedded name="price" class="Ecommerce\Product\Domain\ProductPrice" use-column-prefix="false"/>
+    </entity>
+</doctrine-mapping>

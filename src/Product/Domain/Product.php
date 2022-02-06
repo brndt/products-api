@@ -2,13 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ecommerce\Product\Domain\Aggregate;
-
-use Ecommerce\Product\Domain\ValueObject\ProductCategory;
-use Ecommerce\Product\Domain\ValueObject\ProductId;
-use Ecommerce\Product\Domain\ValueObject\ProductName;
-use Ecommerce\Product\Domain\ValueObject\ProductPrice;
-use Ecommerce\Product\Domain\ValueObject\ProductSku;
+namespace Ecommerce\Product\Domain;
 
 final class Product
 {

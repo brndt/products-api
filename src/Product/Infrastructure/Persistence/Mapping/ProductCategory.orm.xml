@@ -1,0 +1,5 @@
+<doctrine-mapping>
+    <embeddable name="Ecommerce\Product\Domain\ProductCategory">
+        <field name="value" type="string" column="category" nullable="false"/>
+    </embeddable>
+</doctrine-mapping>

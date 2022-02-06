@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ecommerce\Product\Domain\ValueObject;
+namespace Ecommerce\Product\Domain;
 
-final class ProductPrice
+final class ProductSku
 {
     public function __construct(public readonly int $value)
     {

@@ -1,0 +1,22 @@
+doctrine:
+    dbal:
+        dbname: '%env(string:ECOMMERCE_DATABASE_NAME)%'
+        host: '%env(string:ECOMMERCE_DATABASE_HOST)%'
+        port: '%env(int:ECOMMERCE_DATABASE_PORT)%'
+        user: '%env(string:ECOMMERCE_DATABASE_USER)%'
+        password: '%env(string:ECOMMERCE_DATABASE_PASSWORD)%'
+        driver: pdo_mysql
+        charset: utf8
+        types:
+            product_id: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductIdType
+            product_category: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductCategoryType
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            Product:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Product/Infrastructure/Persistence/Mapping'
+                prefix: 'Ecommerce\Product\Domain'
