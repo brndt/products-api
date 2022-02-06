@@ -6,6 +6,7 @@ namespace Ecommerce\ProductCategoryDiscount\Infrastructure\Persistence;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Ecommerce\Product\Domain\ProductCategory;
 use Ecommerce\ProductCategoryDiscount\Domain\ProductCategoryDiscount;
 use Ecommerce\ProductCategoryDiscount\Domain\ProductCategoryDiscountId;
 use Ecommerce\ProductCategoryDiscount\Domain\Repository\ProductCategoryDiscountRepository;
@@ -24,5 +25,10 @@ final class DoctrineProductCategoryDiscountRepository implements ProductCategory
     private function repository(): EntityRepository
     {
         return $this->entityManager->getRepository(ProductCategoryDiscount::class);
+    }
+
+    public function byCategory(ProductCategory $category): ?ProductCategoryDiscount
+    {
+        return $this->repository()->findOneBy(['category' => $category]);
     }
 }

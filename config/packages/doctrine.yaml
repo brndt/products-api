@@ -10,6 +10,7 @@ doctrine:
         types:
             product_id: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductIdType
             product_category: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductCategoryType
+            product_sku: Ecommerce\Product\Infrastructure\Persistence\Mapping\ProductSkuType
             product_sku_discount_id: Ecommerce\ProductSkuDiscount\Infrastructure\Persistence\Mapping\ProductSkuDiscountIdType
             product_category_discount_id: Ecommerce\ProductCategoryDiscount\Infrastructure\Persistence\Mapping\ProductCategoryDiscountIdType
     orm:

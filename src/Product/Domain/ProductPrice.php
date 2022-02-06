@@ -9,4 +9,9 @@ final class ProductPrice
     public function __construct(public readonly int $value)
     {
     }
+
+    public function withDiscount(ProductDiscountPercentage $discountPercentage): self
+    {
+        return new self($this->value - $this->value * $discountPercentage->value);
+    }
 }

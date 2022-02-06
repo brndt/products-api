@@ -11,7 +11,7 @@ final class ProductResponse
         public readonly int $sku,
         public readonly string $category,
         public readonly string $name,
-        public readonly int $price,
+        public readonly ProductPriceResponse $price,
     ) {
     }
 }
