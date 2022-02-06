@@ -21,6 +21,13 @@
         "symfony/runtime": "6.0.*",
         "symfony/yaml": "6.0.*"
     },
+    "require-dev": {
+        "behat/behat": "^3.10",
+        "friends-of-behat/mink-extension": "^2.6",
+        "behat/mink-browserkit-driver": "dev-master",
+        "behat/mink": "dev-master",
+        "friends-of-behat/symfony-extension": "^2.3"
+    },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
