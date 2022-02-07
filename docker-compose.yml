@@ -12,7 +12,6 @@ services:
 
   ecommerce-mysql:
     image: mysql:5.7
-    platform: linux/amd64
     container_name: ecommerce-mysql
     ports:
       - "3306:3306"
