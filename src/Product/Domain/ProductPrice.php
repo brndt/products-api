@@ -12,6 +12,6 @@ final class ProductPrice
 
     public function withDiscount(ProductDiscountPercentage $discountPercentage): self
     {
-        return new self($this->value - $this->value * $discountPercentage->value);
+        return new self((int) ($this->value - $this->value * $discountPercentage->value * 0.01));
     }
 }

@@ -10,7 +10,7 @@ final class ProductWithCalculatedDiscountResponse
 {
     public function __construct(
         public readonly string $id,
-        public readonly int $sku,
+        public readonly string $sku,
         public readonly string $category,
         public readonly string $name,
         public readonly ProductCalculatedDiscountResponse $price,

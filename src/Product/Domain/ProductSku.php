@@ -6,7 +6,7 @@ namespace Ecommerce\Product\Domain;
 
 final class ProductSku
 {
-    public function __construct(public readonly int $value)
+    public function __construct(public readonly string $value)
     {
     }
 }

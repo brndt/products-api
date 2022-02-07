@@ -21,6 +21,8 @@ services:
       MYSQL_DATABASE: ${ECOMMERCE_DATABASE_NAME}
       MYSQL_USER: ${ECOMMERCE_DATABASE_USER}
       MYSQL_PASSWORD: ${ECOMMERCE_DATABASE_PASSWORD}
+    volumes:
+      - ./etc/mysql/setup.sql:/docker-entrypoint-initdb.d/setup.sql
     networks:
       - ecommerce-network
 

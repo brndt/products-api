@@ -6,21 +6,27 @@ namespace Ecommerce\Product\Infrastructure\Framework\Controller;
 
 use Ecommerce\Product\Application\DTO\ProductCriteriaRequest;
 use Ecommerce\Product\Application\SearchProductsByCriteria\SearchProductsByCriteriaApplicationService;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
-final class ProductsGetRestController extends AbstractController
+final class ProductsGetRestController extends AbstractFOSRestController
 {
     public function __construct(private SearchProductsByCriteriaApplicationService $searchProductsByCriteria)
     {
     }
 
-    #[Route('/products')]
-    public function __invoke(): Response
+    #[Rest\Get('/products')]
+    public function __invoke(Request $request): Response
     {
         $filters = [];
+        $filteredByCategory = $request->query->get('category');
+        if (null !== $filteredByCategory) {
+            $filters[] = ['field' => 'category', 'operator' => '=', 'value' => $filteredByCategory];
+        }
         $orderBy = null;
         $order = null;
         $limit = 10;
@@ -30,6 +36,6 @@ final class ProductsGetRestController extends AbstractController
             new ProductCriteriaRequest($filters, $orderBy, $order, $limit, $offset)
         );
 
-        return new JsonResponse($response->items());
+        return $this->handleView($this->view($response->items(), Response::HTTP_OK , []));
     }
 }
