@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ecommerce\Product\Domain;
 
-final class ProductPriceVO
+final class ProductCalculatedDiscount
 {
     public function __construct(
         private ProductPrice $originalPrice,

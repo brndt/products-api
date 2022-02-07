@@ -12,7 +12,7 @@ final class ProductResponseCollection extends Collection
 {
     public static function type(): string
     {
-        return ProductResponse::class;
+        return ProductWithCalculatedDiscountResponse::class;
     }
 
     public static function fromPrimitives(array $primitives): static
