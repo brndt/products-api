@@ -1,0 +1,20 @@
+default:
+  extensions:
+    DAMA\DoctrineTestBundle\Behat\ServiceContainer\DoctrineExtension: ~
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        class: Ecommerce\Kernel
+      bootstrap: config/bootstrap.php
+    Behat\MinkExtension:
+      sessions:
+        symfony:
+          symfony: ~
+      base_url: ''
+
+  suites:
+    Product:
+      paths:
+        - tests/Acceptance/Features/Product
+      contexts:
+        - Ecommerce\Tests\Acceptance\Context\ApiContext
+        - Ecommerce\Tests\Acceptance\Context\DataContext
