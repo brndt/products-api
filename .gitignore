@@ -11,7 +11,3 @@
 products-api.iml
 symfony.lock
 ###< symfony/framework-bundle ###
-
-###> friends-of-behat/symfony-extension ###
-/behat.yml
-###< friends-of-behat/symfony-extension ###
